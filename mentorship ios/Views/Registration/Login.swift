@@ -99,6 +99,10 @@ struct Login: View {
                 .frame(height: DesignConstants.Height.socialSignInButton)
             }
         }
+        .onDisappear(perform: {
+            self.loginViewModel.resetLogin()
+            //fix for: https://github.com/anitab-org/mentorship-ios/issues/123
+        })
         .modifier(AllPadding())
     }
 }

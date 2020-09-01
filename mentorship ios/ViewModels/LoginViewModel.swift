@@ -30,5 +30,11 @@ class LoginViewModel: ObservableObject {
     func attemptAppleLogin() {
         appleSignInCoordinator.handleAuthorizationAppleIDButtonPress()
     }
+
+    //should be called when the view is going to disAppear, fix for:
+    // https://github.com/anitab-org/mentorship-ios/issues/123
+    func resetLogin() {
+        self.loginData = .init(username: "", password: "")
+    }
     
 }
